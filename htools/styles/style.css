@@ -5,7 +5,7 @@
 /* note that this gets overridden by bootstrap-responsive.min.css when screen size changes */
 body {
 	padding-top: 60px;
-	padding-bottom: 40px;
+	padding-bottom: 10px;
 }
 
 h1 {

@@ -171,6 +171,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'PUT:api/relacaoacesso/(:num)' => array('route' => 'RelacaoAcesso.Update', 'params' => array('id' => 2)),
 	'DELETE:api/relacaoacesso/(:num)' => array('route' => 'RelacaoAcesso.Delete', 'params' => array('id' => 2)),
 
+
 	// catch any broken API urls
 	'GET:api/(:any)' => array('route' => 'Default.ErrorApi404'),
 	'PUT:api/(:any)' => array('route' => 'Default.ErrorApi404'),
