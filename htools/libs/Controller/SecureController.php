@@ -25,63 +25,63 @@ class SecureController extends AppBaseController
 
 		// TODO: add controller-wide bootstrap code
 	}
-	
+
 	/**
 	 * This page requires ExampleUser::$PERMISSION_USER to view
 	 */
 	public function UserPage()
 	{
-		$this->RequirePermission(User::$PERMISSION_READ, 
-				'Secure.LoginForm', 
+		$this->RequirePermission(User::$PERMISSION_READ,
+				'Secure.LoginForm',
 				'Login e requerido para acessar essa pagina',
 				'Permissao de leitura e obrigatoria');
-		
+
 		$this->Assign("currentUser", $this->GetCurrentUser());
-		
+
 		$this->Assign('page','userpage');
 		$this->Render("Secure");
 	}
-	
+
 	/**
 	 * This page requires ExampleUser::$PERMISSION_ADMIN to view
 	 */
 	public function AdminPage()
 	{
-		$this->RequirePermission(User::$PERMISSION_ADMIN, 
-				'Secure.LoginForm', 
+		$this->RequirePermission(User::$PERMISSION_ADMIN,
+				'Secure.LoginForm',
 				'Login e requerido para acessar a pagina de admin',
 				'Permissao de admin e requerida');
-		
+
 		$this->Assign("currentUser", $this->GetCurrentUser());
-		
+
 		$this->Assign('page','adminpage');
 		$this->Render("Secure");
 	}
-	
+
 	/**
 	 * Display the login form
 	 */
 	public function LoginForm()
 	{
 		$this->Assign("currentUser", $this->GetCurrentUser());
-		
+
 		$this->Assign('page','login');
 		$this->Render("Secure");
 	}
-	
+
 	/**
-	 * Process the login, create the user session and then redirect to 
+	 * Process the login, create the user session and then redirect to
 	 * the appropriate page
 	 */
 	public function Login()
 	{
 		$user = new User($this->Phreezer);
-		
+
 		if ($user->Login(RequestUtil::Get('username'), RequestUtil::Get('password')))
 		{
 			// login success
 			$this->SetCurrentUser($user);
-			$this->Redirect('Secure.UserPage');
+			$this->Redirect('Default.Home');
 		}
 		else
 		{
@@ -89,7 +89,7 @@ class SecureController extends AppBaseController
 			$this->Redirect('Secure.LoginForm','Usuario e senha invalidos.');
 		}
 	}
-	
+
 	/**
 	 * Clear the user session and redirect to the login page
 	 */

@@ -20,9 +20,13 @@ class DefaultController extends AppBaseController
 	protected function Init()
 	{
 		parent::Init();
+		$this->RequirePermission(User::$PERMISSION_READ,
+			'Secure.LoginForm',
+			'Login requerido para acessar esta pagina',
+			'Permissao de leitura e obrigatoria');
 
 		// TODO: add controller-wide bootstrap code
-		
+
 		// TODO: if authentiation is required for this entire controller, for example:
 		// $this->RequirePermission(ExampleUser::$PERMISSION_USER,'SecureExample.LoginForm');
 	}
@@ -33,6 +37,7 @@ class DefaultController extends AppBaseController
 	public function Home()
 	{
 		$this->Render();
+
 	}
 
 	/**

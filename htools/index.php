@@ -32,17 +32,17 @@ catch (exception $ex)
 	// This is the global error handler which will be called in the event of
 	// uncaught errors.  If the endpoint appears to be an API request then
 	// render it as JSON, otherwise attempt to render a friendly HTML page
-	
+
 	$url = RequestUtil::GetCurrentURL();
 	$isApiRequest = (strpos($url,'api/') !== false);
-	
+
 	if ($isApiRequest)
 	{
 		$result = new stdClass();
 		$result->success= false;
 		$result->message = $ex->getMessage();
 		$result->data = $ex->getTraceAsString();
-		
+
 		@header('HTTP/1.1 401 Unauthorized');
 		echo json_encode($result);
 	}
@@ -51,7 +51,7 @@ catch (exception $ex)
 		$gc->GetRenderEngine()->assign("message",$ex->getMessage());
 		$gc->GetRenderEngine()->assign("stacktrace",$ex->getTraceAsString());
 		$gc->GetRenderEngine()->assign("code",$ex->getCode());
-		
+
 		try
 		{
 			$gc->GetRenderEngine()->display("DefaultErrorFatal.tpl");

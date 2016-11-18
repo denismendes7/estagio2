@@ -4,6 +4,8 @@
 
 	$this->display('_Header.tpl.php');
 ?>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
@@ -17,14 +19,34 @@
     </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    
-    <script src="assets/javascripts/1.3.0/adminflare-demo-init.min.js" type="text/javascript"></script>
 
+    <script src="assets/javascripts/1.3.0/adminflare-demo-init.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $LAB.script("bootstrap/js/bootstrap-datepicker.js")
+    .script("bootstrap/js/bootstrap-timepicker.js")
+    .script("bootstrap/js/bootstrap-combobox.js")
+    .script("scripts/libs/underscore-min.js").wait()
+    .script("scripts/libs/underscore.date.min.js")
+    .script("scripts/libs/backbone-min.js")
+    .script("scripts/app.js")
+    .script("scripts/model.js").wait()
+    .script("scripts/view.js").wait()
+    .script("scripts/app/users.js").wait(function(){
+        $(document).ready(function(){
+            page.init();
+        });
+
+        // hack for IE9 which may respond inconsistently with document.ready
+        setTimeout(function(){
+            if (!page.isInitialized) page.init();
+        },1000);
+    });
+</script>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
     <script type="text/javascript">
-        // Include Bootstrap stylesheet 
+        // Include Bootstrap stylesheet
         document.write('<link href="assets/css/' + DEMO_ADMINFLARE_VERSION + '/' + DEMO_CURRENT_THEME + '/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" id="bootstrap-css">');
-        // Include AdminFlare stylesheet 
+        // Include AdminFlare stylesheet
         document.write('<link href="assets/css/' + DEMO_ADMINFLARE_VERSION + '/' + DEMO_CURRENT_THEME + '/adminflare.min.css" media="all" rel="stylesheet" type="text/css" id="adminflare-css">');
 
 
@@ -49,13 +71,13 @@
                             Logados
                         </div>
                     </div>
-                    
+
                     <div class="span2 pie-chart">
                         <div id="easy-pie-chart-2" data-percent="100">
                             100
                         </div>
                         <div class="caption">
-                           Usuário 
+                           Usuário
                         </div>
                     </div>
 

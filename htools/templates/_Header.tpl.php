@@ -27,10 +27,11 @@
         <![endif]-->
 
          <!-- Le fav and touch icons -->
-        <link rel="shortcut icon" href="images/favicon.ico" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114-precomposed.png" />
+      <!-- <link rel="shortcut icon" href="images/htools.icon" />-->
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon1.ico">
+     <!--   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114-precomposed.png" />
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png" /> -->
 
 
         <script type="text/javascript" src="scripts/libs/LAB.min.js"></script>
@@ -231,26 +232,49 @@
 
 <body>
 
+<header class="navbar navbar-fixed-top" id="main-navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="logo" href="#"><img alt="Af_logo" src="images/ht.png" width="155" height="80"></a>
+
+                <a class="btn nav-button collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-reorder"></span>
+                </a>
+
+                <div class="nav-collapse collapse">
+                   
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle usermenu" data-toggle="dropdown">
+                                <img alt="Avatar" src="assets/images/avatar.png">
+                                <?php $this->eprint($this->currentUser->Username);?>
+                         <ul class="dropdown-menu">
+                                <li <?php if ($this->nav=='roles') { echo 'class="active"'; } ?>><a href="./roles"><span class="icon-edit"></span>Roles</a></li>
+                                <li <?php if ($this->nav=='users') { echo 'class="active"'; } ?>><a href="./users"><span class="icon-group"></span>Users</a></li>
+                                <li <?php if ($this->nav=='Login') { echo 'class="active"'; } ?>><a href="./logout"><span class="icon-signout">Logout</a></li>
+                        </ul>
+                                </li>
+                            </ul>
+                   </div>
+            </div>
+        </div>
+    </header>
+
    
     <a class="brand" href="index.html">
 
   
-        <figure><img src="images/ht.png" alt="Htools" title="Hootls Inicio" width="200" height="80"/></figure>
-
+        <figure><img src="images/htoolimg.png" alt="Htools" title="Hootls Inicio" width="1000" height="80"/></figure>
+</a>
   
-        <div class="navbar-inner">
-
-         <ul class="nav pull-right">
-            <li <?php if ($this->nav=='Login') { echo 'class="active"'; } ?>><a href="./loginform"><i class="icon-lock"></i>Login</a></li>
-        </ul>
-        </div>
+        <div class="navbar-inner"></div>
 
 <div class="container">
-			<a data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-	        </a>
+            <a data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
        
 
 <nav id="left-panel">
@@ -259,27 +283,23 @@
 
             <li class="active"><a href="#"><span class="icon-dashboard"></span>View</a></li>  
         
-			<li <?php if ($this->nav=='usuarios') { echo 'class="active"'; } ?>><a href="./usuarios"><span class="icon-th-large"></span>Cadastro Usuarios</a></li>
+            <li <?php if ($this->nav=='usuarios') { echo 'class="active"'; } ?>><a href="./usuarios"><span class="icon-user"></span>Cadastro Usuarios</a></li>
 
-			<li <?php if ($this->nav=='concentradores') { echo 'class="active"'; } ?>><a href="./concentradores"><span class="icon-font"></span>Cadastro RB</a></li>
+            <li <?php if ($this->nav=='concentradores') { echo 'class="active"'; } ?>><a href="./concentradores"><span class="icon-rss"></span>Cadastro RB</a></li>
 
-			<li <?php if ($this->nav=='empresas') { echo 'class="active"'; } ?>><a href="./empresas"><span class="icon-cog"></span>Cadastro Empresas</a></li>
+            <li <?php if ($this->nav=='empresas') { echo 'class="active"'; } ?>><a href="./empresas"><span class="icon-cog"></span>Cadastro Empresas</a></li>
                    
 
-			<li <?php if ($this->nav=='acessos') { echo 'class="active"'; } ?>><a href="./acessos"><span class="icon-leaf"></span>Perfil de Acesso</a></li>
+            <li <?php if ($this->nav=='acessos') { echo 'class="active"'; } ?>><a href="./acessos"><span class=" icon-spinner"></span>Perfil de Acesso</a></li>
 
-			<li <?php if ($this->nav=='pfacebooks') { echo 'class="active"'; } ?>><a href="./pfacebooks"><span class="icon-check"></span>Perfil de Facebook</a></li>
+            <li <?php if ($this->nav=='pfacebooks') { echo 'class="active"'; } ?>><a href="./pfacebooks"><span class=" icon-facebook-sign"></span>Perfil de Facebook</a></li>
 
-	<!--		<li <?php if ($this->nav=='perfilsmses') { echo 'class="active"'; } ?>><a href="./perfilsmses"><span class="icon-cog"></span>Perfil de SMS</a></li>-->
+    <!--        <li <?php if ($this->nav=='perfilsmses') { echo 'class="active"'; } ?>><a href="./perfilsmses"><span class="icon-cog"></span>Perfil de SMS</a></li>-->
 
-			<li <?php if ($this->nav=='roles') { echo 'class="active"'; } ?>><a href="./roles"><span class="icon-edit"></span>Roles</a></li>
-
-			<li <?php if ($this->nav=='users') { echo 'class="active"'; } ?>><a href="./users"><span class="icon-edit"></span>Users</a></li>
-             
         </ul>
 
         </div>
-</nav>	
+</nav>  
 
 </div>
 

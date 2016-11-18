@@ -1,5 +1,5 @@
 <?php
-	$this->assign('title','Autentica&ccedil;&atilde;o Padr&atilde;o');
+	$this->assign('title','Usuarios');
 	$this->assign('nav','users');
 
 	$this->display('_Header.tpl.php');

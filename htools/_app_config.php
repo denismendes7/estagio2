@@ -23,7 +23,7 @@ if (!GlobalConfig::$APP_ROOT) GlobalConfig::$APP_ROOT = realpath("./");
 /**
  * check is needed to ensure asp_tags is not enabled
  */
-if (ini_get('asp_tags')) 
+if (ini_get('asp_tags'))
 	die('<h3>Server Configuration Problem: asp_tags is enabled, but is not compatible with Savant.</h3>'
 	. '<p>You can disable asp_tags in .htaccess, php.ini or generate your app with another template engine such as Smarty.</p>');
 
@@ -72,14 +72,14 @@ GlobalConfig::$ROUTE_MAP = array(
 
 	// default controller when no route specified
 	'GET:' => array('route' => 'Default.Home'),
-		
+
 	// example authentication routes
 	'GET:loginform' => array('route' => 'Secure.LoginForm'),
 	'POST:login' => array('route' => 'Secure.Login'),
 	'GET:secureuser' => array('route' => 'Secure.UserPage'),
 	'GET:secureadmin' => array('route' => 'Secure.AdminPage'),
 	'GET:logout' => array('route' => 'Secure.Logout'),
-	
+
 	// Funcoes Autenticacao
 	'GET:roles' => array('route' => 'Role.ListView'),
 	'GET:role/(:num)' => array('route' => 'Role.SingleView', 'params' => array('id' => 1)),
@@ -88,7 +88,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/role/(:num)' => array('route' => 'Role.Read', 'params' => array('id' => 2)),
 	'PUT:api/role/(:num)' => array('route' => 'Role.Update', 'params' => array('id' => 2)),
 	'DELETE:api/role/(:num)' => array('route' => 'Role.Delete', 'params' => array('id' => 2)),
-		
+
 	// Usuarios Autenticacao
 	'GET:users' => array('route' => 'User.ListView'),
 	'GET:user/(:num)' => array('route' => 'User.SingleView', 'params' => array('id' => 1)),
@@ -97,8 +97,8 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/user/(:num)' => array('route' => 'User.Read', 'params' => array('id' => 2)),
 	'PUT:api/user/(:num)' => array('route' => 'User.Update', 'params' => array('id' => 2)),
 	'DELETE:api/user/(:num)' => array('route' => 'User.Delete', 'params' => array('id' => 2)),
-		
-		
+
+
 	// Facebook
 	'GET:facebooks' => array('route' => 'Facebook.ListView'),
 	'GET:facebook/(:any)' => array('route' => 'Facebook.SingleView', 'params' => array('id' => 1)),
@@ -107,7 +107,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/facebook/(:any)' => array('route' => 'Facebook.Read', 'params' => array('id' => 2)),
 	'PUT:api/facebook/(:any)' => array('route' => 'Facebook.Update', 'params' => array('id' => 2)),
 	'DELETE:api/facebook/(:any)' => array('route' => 'Facebook.Delete', 'params' => array('id' => 2)),
-		
+
 	// Usuario
 	'GET:usuarios' => array('route' => 'Usuario.ListView'),
 	'GET:usuario/(:num)' => array('route' => 'Usuario.SingleView', 'params' => array('id' => 1)),
@@ -116,7 +116,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/usuario/(:num)' => array('route' => 'Usuario.Read', 'params' => array('id' => 2)),
 	'PUT:api/usuario/(:num)' => array('route' => 'Usuario.Update', 'params' => array('id' => 2)),
 	'DELETE:api/usuario/(:num)' => array('route' => 'Usuario.Delete', 'params' => array('id' => 2)),
-		
+
 	// Concentrador
 	'GET:concentradores' => array('route' => 'Concentrador.ListView'),
 	'GET:concentrador/(:num)' => array('route' => 'Concentrador.SingleView', 'params' => array('id' => 1)),
@@ -125,7 +125,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/concentrador/(:num)' => array('route' => 'Concentrador.Read', 'params' => array('id' => 2)),
 	'PUT:api/concentrador/(:num)' => array('route' => 'Concentrador.Update', 'params' => array('id' => 2)),
 	'DELETE:api/concentrador/(:num)' => array('route' => 'Concentrador.Delete', 'params' => array('id' => 2)),
-		
+
 	// Empresa
 	'GET:empresas' => array('route' => 'Empresa.ListView'),
 	'GET:empresa/(:num)' => array('route' => 'Empresa.SingleView', 'params' => array('id' => 1)),
@@ -134,7 +134,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/empresa/(:num)' => array('route' => 'Empresa.Read', 'params' => array('id' => 2)),
 	'PUT:api/empresa/(:num)' => array('route' => 'Empresa.Update', 'params' => array('id' => 2)),
 	'DELETE:api/empresa/(:num)' => array('route' => 'Empresa.Delete', 'params' => array('id' => 2)),
-		
+
 	// Acesso
 	'GET:acessos' => array('route' => 'Acesso.ListView'),
 	'GET:acesso/(:num)' => array('route' => 'Acesso.SingleView', 'params' => array('id' => 1)),
@@ -143,7 +143,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/acesso/(:num)' => array('route' => 'Acesso.Read', 'params' => array('id' => 2)),
 	'PUT:api/acesso/(:num)' => array('route' => 'Acesso.Update', 'params' => array('id' => 2)),
 	'DELETE:api/acesso/(:num)' => array('route' => 'Acesso.Delete', 'params' => array('id' => 2)),
-		
+
 	// PFacebook
 	'GET:pfacebooks' => array('route' => 'PFacebook.ListView'),
 	'GET:pfacebook/(:num)' => array('route' => 'PFacebook.SingleView', 'params' => array('id' => 1)),
@@ -152,7 +152,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/pfacebook/(:num)' => array('route' => 'PFacebook.Read', 'params' => array('id' => 2)),
 	'PUT:api/pfacebook/(:num)' => array('route' => 'PFacebook.Update', 'params' => array('id' => 2)),
 	'DELETE:api/pfacebook/(:num)' => array('route' => 'PFacebook.Delete', 'params' => array('id' => 2)),
-		
+
 	// PerfilSms
 	'GET:perfilsmses' => array('route' => 'PerfilSms.ListView'),
 	'GET:perfilsms/(:num)' => array('route' => 'PerfilSms.SingleView', 'params' => array('id' => 1)),
@@ -161,7 +161,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/perfilsms/(:num)' => array('route' => 'PerfilSms.Read', 'params' => array('id' => 2)),
 	'PUT:api/perfilsms/(:num)' => array('route' => 'PerfilSms.Update', 'params' => array('id' => 2)),
 	'DELETE:api/perfilsms/(:num)' => array('route' => 'PerfilSms.Delete', 'params' => array('id' => 2)),
-		
+
 	// RelacaoAcesso
 	'GET:relacaoacessos' => array('route' => 'RelacaoAcesso.ListView'),
 	'GET:relacaoacesso/(:num)' => array('route' => 'RelacaoAcesso.SingleView', 'params' => array('id' => 1)),
